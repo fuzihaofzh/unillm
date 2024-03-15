@@ -1,5 +1,17 @@
 # UniLLM: Unified Large Language Model Interface
 
+<p>
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+</a>
+<a href="https://pypi.org/project/unillm/">
+  <img src="https://img.shields.io/pypi/v/unillm.svg" alt="PyPI">
+</a>
+<a href="https://github.com/fuzihaofzh/unillm">
+  <img src="https://img.shields.io/github/stars/fuzihaofzh/unillm.svg?style=social&label=Star&maxAge=2592000" alt="GitHub stars">
+</a>
+</p>
+
 UniLLM is a versatile Python library and command-line tool designed to provide unified access to various large language models, including [ChatGPT](https://openai.com/chatgpt), [Llama](https://llama.meta.com/), [Mistral (local)](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2), [Claude](https://www.anthropic.com/), [MistralAI (API)](https://mistral.ai/), and [RAG (llamaindex)](https://www.llamaindex.ai/). It simplifies the process of interacting with these models, whether you're integrating them into your Python projects or using them directly via the command line.
 
 ## Features
