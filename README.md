@@ -51,7 +51,7 @@ Replace `YOUR_MODEL_API_KEY` with the actual API keys for the models you plan to
 | Mistral     | ✅         | ✅            |
 | Claude      | ✅         |               | 
 | RAG         | ✅         | ✅            |
-| Gemii       | Soon       |               |
+| Gemini       | Soon       |               |
 
 ## Usage
 
