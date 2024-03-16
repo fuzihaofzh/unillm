@@ -8,11 +8,8 @@ def get_api_key(model_type):
     config_path = Path.home() / '.unillm.yaml'
     api_key_template = {
         'chatgpt': 'YOUR_API_KEY_HERE',
-        'llama': 'YOUR_API_KEY_HERE',
-        'mistral': 'YOUR_API_KEY_HERE',
         'claude': 'YOUR_API_KEY_HERE',
         'mistralai': 'YOUR_API_KEY_HERE',
-        'rag': 'YOUR_API_KEY_HERE'
     }
 
     if not config_path.exists():

@@ -23,7 +23,7 @@ setup(
         "openai",
         "torch",
         "transformers",
-        "yaml",
+        "PyYAML",
         "peft",  
         "anthropic",
         "mistralai",  

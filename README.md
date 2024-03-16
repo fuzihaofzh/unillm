@@ -61,7 +61,7 @@ You can use UniLLM in your Python projects to interact with various language mod
 Example:
 
 ```python
-from unillm.unillm import UniLLM
+from unillm import UniLLM
 
 # Initialize the model (e.g., Llama with PEFT)
 model = UniLLM('llama', peft_path="output/my_lora", max_new_tokens=1024)
