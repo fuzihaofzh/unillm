@@ -34,10 +34,9 @@ pip install unillm
 Before using UniLLM, you need to configure your API keys for the models you intend to use. Create a `.unillm.yaml` file in your home directory with the following structure:
 
 ```yaml
-chatgpt: 'YOUR_CHATGPT_API_KEY'
-llama: 'YOUR_LLAMA_API_KEY'
-claude: 'YOUR_CLAUDE_API_KEY'
-mistralai: 'YOUR_MISTRALAI_API_KEY'
+chatgpt: YOUR_CHATGPT_API_KEY
+claude: YOUR_CLAUDE_API_KEY
+mistralai: YOUR_MISTRALAI_API_KEY
 ```
 
 Replace `YOUR_MODEL_API_KEY` with the actual API keys for the models you plan to use.
