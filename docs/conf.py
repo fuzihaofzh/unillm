@@ -9,6 +9,8 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+import unillm
+version = unillm.__version__
 
 project = 'unillm'
 copyright = '2024, Zihao Fu'
