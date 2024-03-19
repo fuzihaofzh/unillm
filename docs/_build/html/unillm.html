@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>unillm package &mdash; unillm  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="unillm" href="modules.html" />
+    <link rel="prev" title="Welcome to unillm’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            unillm
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">unillm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-unillm.unillm">unillm.unillm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.ChatGPT"><code class="docutils literal notranslate"><span class="pre">ChatGPT</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.ChatGPT.generate_response"><code class="docutils literal notranslate"><span class="pre">ChatGPT.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.Claude"><code class="docutils literal notranslate"><span class="pre">Claude</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Claude.generate_response"><code class="docutils literal notranslate"><span class="pre">Claude.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.Llama"><code class="docutils literal notranslate"><span class="pre">Llama</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Llama.generate_response"><code class="docutils literal notranslate"><span class="pre">Llama.generate_response()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Llama.get_prompt"><code class="docutils literal notranslate"><span class="pre">Llama.get_prompt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.Mistral"><code class="docutils literal notranslate"><span class="pre">Mistral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Mistral.generate_response"><code class="docutils literal notranslate"><span class="pre">Mistral.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.MistralAI"><code class="docutils literal notranslate"><span class="pre">MistralAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.MistralAI.generate_response"><code class="docutils literal notranslate"><span class="pre">MistralAI.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.RAG"><code class="docutils literal notranslate"><span class="pre">RAG</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.RAG.generate_response"><code class="docutils literal notranslate"><span class="pre">RAG.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.UniLLM"><code class="docutils literal notranslate"><span class="pre">UniLLM</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.UniLLM.generate_response"><code class="docutils literal notranslate"><span class="pre">UniLLM.generate_response()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.UniLLM.initialize_model"><code class="docutils literal notranslate"><span class="pre">UniLLM.initialize_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.UniLLMBase"><code class="docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.UniLLMBase.generate_response"><code class="docutils literal notranslate"><span class="pre">UniLLMBase.generate_response()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.cmd"><code class="docutils literal notranslate"><span class="pre">cmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.get_api_key"><code class="docutils literal notranslate"><span class="pre">get_api_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unillm.unillm.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-unillm.version">unillm.version module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-unillm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">unillm</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">unillm package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-unillm.unillm">unillm.unillm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.ChatGPT"><code class="docutils literal notranslate"><span class="pre">ChatGPT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Claude"><code class="docutils literal notranslate"><span class="pre">Claude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Llama"><code class="docutils literal notranslate"><span class="pre">Llama</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.Mistral"><code class="docutils literal notranslate"><span class="pre">Mistral</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.MistralAI"><code class="docutils literal notranslate"><span class="pre">MistralAI</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.RAG"><code class="docutils literal notranslate"><span class="pre">RAG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.UniLLM"><code class="docutils literal notranslate"><span class="pre">UniLLM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.UniLLMBase"><code class="docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.cmd"><code class="docutils literal notranslate"><span class="pre">cmd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.get_api_key"><code class="docutils literal notranslate"><span class="pre">get_api_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unillm.unillm.run_cmd"><code class="docutils literal notranslate"><span class="pre">run_cmd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-unillm.version">unillm.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-unillm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">unillm</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">unillm package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/unillm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="unillm-package">
+<h1>unillm package<a class="headerlink" href="#unillm-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-unillm.unillm">
+<span id="unillm-unillm-module"></span><h2>unillm.unillm module<a class="headerlink" href="#module-unillm.unillm" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.ChatGPT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">ChatGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.ChatGPT" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a ChatGPT model for generating text responses.</p>
+<p>Initializes the ChatGPT model with an API key and model name.</p>
+<dl>
+<dt>Args:</dt><dd><p>api_key (str, optional): The API key for the OpenAI service. If not provided, it’s fetched using get_api_key.</p>
+<p>model_name (str, optional): The name of the GPT model to use. Default is <cite>gpt-3.5-turbo</cite>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.ChatGPT.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.ChatGPT.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the ChatGPT model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.Claude">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">Claude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'claude-3-opus-20240229'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Claude" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a Claude model for generating text responses.</p>
+<p>Initializes the Claude model with an API key and model ID.</p>
+<dl>
+<dt>Args:</dt><dd><p>api_key (str, optional): The API key for Claude’s services. If not provided, it’s fetched using get_api_key.</p>
+<p>model_id (str): Identifier for the Claude model. Default is <cite>claude-3-opus-20240229</cite></p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.Claude.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Claude.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the Claude model.</p>
+<dl>
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+<p>max_tokens (int): Maximum number of tokens to generate.</p>
+<p>temperature (float): Temperature for generation.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.Llama">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">Llama</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'meta-llama/Llama-2-7b-chat-hf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peft_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_new_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Llama" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a Llama model for generating text responses.</p>
+<p>Initializes the Llama model with specified parameters.</p>
+<dl>
+<dt>Args:</dt><dd><p>model_id (str): Identifier for the Llama model. Default is <cite>meta-llama/Llama-2-7b-chat-hf</cite>.</p>
+<p>peft_path (str, optional): Path to the PEFT model.</p>
+<p>max_new_tokens (int): Maximum new tokens to generate.</p>
+<p>top_p (float): Nucleus sampling probability.</p>
+<p>top_k (int): Top k filtering.</p>
+<p>temperature (float): Temperature for generation.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.Llama.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Llama.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the Llama model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.Llama.get_prompt">
+<span class="sig-name descname"><span class="pre">get_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chat_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Llama.get_prompt" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the prompt for the Llama model from the given message and chat history.</p>
+<dl>
+<dt>Args:</dt><dd><p>message (str): The input message.</p>
+<p>chat_history (list): A list of tuples containing the chat history.</p>
+<p>system_prompt (str): A prompt describing the system’s role.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The constructed prompt.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.Mistral">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">Mistral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mistralai/Mistral-7B-Instruct-v0.2'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Mistral" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a Mistral model for generating text responses.</p>
+<p>Initializes the Mistral model with a specified model ID.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_id (str): Identifier for the Mistral model. Default is <cite>mistralai/Mistral-7B-Instruct-v0.2</cite>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.Mistral.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_new_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetition_penalty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.Mistral.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the Mistral model.</p>
+<dl>
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+<p>max_new_tokens (int): Maximum new tokens to generate.</p>
+<p>temperature (float): Temperature for generation.</p>
+<p>top_p (float): Nucleus sampling probability.</p>
+<p>top_k (int): Top k filtering.</p>
+<p>repetition_penalty (float): Repetition penalty.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.MistralAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">MistralAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mistral-large-latest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.MistralAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a MistralAI model for generating text responses via API.</p>
+<p>Initializes the MistralAI model with an API key and model identifier.</p>
+<dl>
+<dt>Args:</dt><dd><p>api_key (str, optional): The API key for MistralAI’s services. If not provided, it’s fetched using get_api_key.</p>
+<p>model (str): The model identifier for MistralAI. Default is <cite>mistral-large-latest</cite>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.MistralAI.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.MistralAI.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the MistralAI model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.RAG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">RAG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ragmodel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.RAG" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#unillm.unillm.UniLLMBase" title="unillm.unillm.UniLLMBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniLLMBase</span></code></a></p>
+<p>Class representing a Retrieval-Augmented Generation (RAG) model for generating text responses.</p>
+<p>Initializes the RAG model with the data path, API key, and model identifier.</p>
+<dl>
+<dt>Args:</dt><dd><p>data_path (str): The path to the data for the RAG model.</p>
+<p>api_key (str, optional): The API key for the service. If not provided, it’s fetched using get_api_key.</p>
+<p>ragmodel (str, optional): Identifier for a specific RAG model. e.g. <cite>meta-llama/Llama-2-7b-chat-hf</cite>. If ragmodel is not set, it will use chatgpt by default.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.RAG.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.RAG.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a text response using the RAG model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The input message to respond to.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.UniLLM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">UniLLM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.UniLLM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A factory class to initialize and interact with various UniLLM models.</p>
+<p>Initializes the specified UniLLM model type with the given arguments.</p>
+<dl>
+<dt>Args:</dt><dd><p>model_type (str): The type of model to initialize.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs: Additional keyword arguments to pass to the model’s constructor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.UniLLM.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.UniLLM.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Generates a response using the initialized model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The message to generate a response for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The generated response.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.UniLLM.initialize_model">
+<span class="sig-name descname"><span class="pre">initialize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.UniLLM.initialize_model" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes a specific model based on the model type.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_type (str): The type of model to initialize.
+<a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs: Additional keyword arguments for model initialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>UniLLMBase: An instance of the specified model type.</p>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: If the specified model type is unsupported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="unillm.unillm.UniLLMBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">UniLLMBase</span></span><a class="headerlink" href="#unillm.unillm.UniLLMBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all UniLLM models providing a template for generating responses.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="unillm.unillm.UniLLMBase.generate_response">
+<span class="sig-name descname"><span class="pre">generate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.UniLLMBase.generate_response" title="Permalink to this definition"></a></dt>
+<dd><p>Abstract method to generate a response to a given message.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>message (str): The message to respond to.</p>
+</dd>
+<dt>Raises:</dt><dd><p>NotImplementedError: If the subclass does not implement this method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unillm.unillm.cmd">
+<span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.cmd" title="Permalink to this definition"></a></dt>
+<dd><p>Command line interface to interact with various UniLLM models.</p>
+<dl>
+<dt>Args:</dt><dd><p>model_type (str, optional): The type of model to interact with. If not specified, the user will be prompted to choose one.</p>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs: Additional keyword arguments to pass to the model’s constructor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unillm.unillm.get_api_key">
+<span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">get_api_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.get_api_key" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve the API key for a given model type from a YAML configuration file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>model_type (str): The type of the model for which the API key is requested.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The API key for the requested model type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unillm.unillm.run_cmd">
+<span class="sig-prename descclassname"><span class="pre">unillm.unillm.</span></span><span class="sig-name descname"><span class="pre">run_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unillm.unillm.run_cmd" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes and runs the command line interface using the Fire library.</p>
+</dd></dl>
+
+</section>
+<section id="module-unillm.version">
+<span id="unillm-version-module"></span><h2>unillm.version module<a class="headerlink" href="#module-unillm.version" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-unillm">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-unillm" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to unillm’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="unillm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Zihao Fu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
