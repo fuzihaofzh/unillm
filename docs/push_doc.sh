@@ -1,1 +1,0 @@
-git push origin `git subtree split --prefix docs/_build/html main`:refs/heads/gh-pages --force
