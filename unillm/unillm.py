@@ -2,6 +2,7 @@ import os
 import yaml
 from pathlib import Path
 from threading import Thread
+import torch
 
 # Define a function to retrieve API keys
 def get_api_key(model_type):
@@ -432,6 +433,116 @@ class RAG(UniLLMBase):
             str: The generated response.
         """
         return self.rag_query_engine.query(message)
+    
+class Llama3(UniLLMBase):
+    """
+    Class representing the Llama3 model for generating text responses.
+    """
+    def __init__(self, model_id="meta-llama/Meta-Llama-3-8B-Instruct", device="cuda", max_new_tokens=256, temperature=0.6, top_p=0.9, torch_dtype=torch.bfloat16):
+        """
+        Initializes the Llama3 model with specified parameters.
+
+        Args:
+            model_id (str): Identifier for the Llama model. Default is `meta-llama/Meta-Llama-3-8B-Instruct`.
+            device (str): Device to run the model on, default is 'cuda'.
+            max_new_tokens (int): Maximum number of new tokens to generate.
+            temperature (float): Temperature parameter for sampling.
+            top_p (float): Top p parameter for nucleus sampling.
+            torch_dtype (torch.dtype): Torch data type for the model, default is bfloat16.
+        """
+        import transformers
+        self.pipeline = transformers.pipeline(
+            "text-generation",
+            model=model_id,
+            model_kwargs={"torch_dtype": torch_dtype},
+            device=device
+        )
+        self.tokenizer = self.pipeline.tokenizer
+        self.max_new_tokens = max_new_tokens
+        self.temperature = temperature
+        self.top_p = top_p
+
+    def generate_response(self, user_input):
+        """
+        Generate a text response using the Llama3 model.
+
+        Args:
+            user_input (str): User's input text to be incorporated into the message template.
+
+        Returns:
+            str: The generated text output.
+        """
+        messages = [
+            {"role": "system", "content": "You are a helpful AI. Try to answer all questions as much as you know."},
+            {"role": "user", "content": user_input},
+        ]
+
+        prompt = self.tokenizer.apply_chat_template(
+            messages, 
+            tokenize=False, 
+            add_generation_prompt=True
+        )
+
+        terminators = [
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
+        outputs = self.pipeline(
+            prompt,
+            max_new_tokens=self.max_new_tokens,
+            eos_token_id=terminators,
+            do_sample=True,
+            temperature=self.temperature,
+            top_p=self.top_p,
+        )
+        return outputs[0]["generated_text"][len(prompt):]
+
+class CommandRPlus(UniLLMBase):
+    """
+    Class representing the CommandRPlus model for generating text responses.
+    """
+    def __init__(self, model_id="CohereForAI/c4ai-command-r-plus-4bit"):
+        """
+        Initializes the CommandRPlus model with specified parameters.
+
+        Args:
+            model_id (str): Identifier for the model. Default is "CohereForAI/c4ai-command-r-plus-4bit".
+        """
+        from transformers import AutoTokenizer, AutoModelForCausalLM
+
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id)
+
+    def generate_response(self, user_input):
+        """
+        Generate a text response using the CommandRPlus model.
+
+        Args:
+            user_input (str): User's input text to be incorporated into the message template.
+
+        Returns:
+            str: The generated text output, cleaned of any system tokens or command prompts.
+        """
+        messages = [{"role": "user", "content": user_input}]
+        input_ids = self.tokenizer.apply_chat_template(
+            messages, 
+            tokenize=True, 
+            add_generation_prompt=True, 
+            return_tensors="pt"
+        )
+
+        gen_tokens = self.model.generate(
+            input_ids, 
+            max_new_tokens=100, 
+            do_sample=True, 
+            temperature=0.3,
+        )
+
+        gen_text = self.tokenizer.decode(gen_tokens[0])
+        # Remove everything before the last <BOS_TOKEN> to clean up the response
+        clean_text = gen_text.split('<BOS_TOKEN>')[-1].strip()
+        return clean_text
 
 class UniLLM:
     """
@@ -468,7 +579,9 @@ class UniLLM:
             'mistral': Mistral,
             'claude': Claude,
             'mistralai': MistralAI,
-            'rag': RAG
+            'rag': RAG,
+            'llama3': Llama3,
+            'commandrplus': CommandRPlus,
         }
         if model_type in model_mapping:
             return model_mapping[model_type](**kwargs)
@@ -502,7 +615,9 @@ def cmd(model_type=None, **kwargs):
         '3': 'mistral',
         '4': 'claude',
         '5': 'mistralai',
-        '6': 'rag'
+        '6': 'rag',
+        '7': 'llama3',
+        '8': 'commandrplus',
     }
 
     if not model_type or model_type not in model_options.values():
