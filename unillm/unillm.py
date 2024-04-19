@@ -3,7 +3,6 @@ import re
 import yaml
 from pathlib import Path
 from threading import Thread
-import torch
 
 # Define a function to retrieve API keys
 def get_api_key(model_type):
@@ -439,7 +438,7 @@ class Llama3(UniLLMBase):
     """
     Class representing the Llama3 model for generating text responses.
     """
-    def __init__(self, model_id="meta-llama/Meta-Llama-3-8B-Instruct", device="cuda", max_new_tokens=256, temperature=0.6, top_p=0.9, torch_dtype=torch.bfloat16):
+    def __init__(self, model_id="meta-llama/Meta-Llama-3-8B-Instruct", device="cuda", max_new_tokens=256, temperature=0.6, top_p=0.9):
         """
         Initializes the Llama3 model with specified parameters.
 
@@ -452,10 +451,11 @@ class Llama3(UniLLMBase):
             torch_dtype (torch.dtype): Torch data type for the model, default is bfloat16.
         """
         import transformers
+        import torch
         self.pipeline = transformers.pipeline(
             "text-generation",
             model=model_id,
-            model_kwargs={"torch_dtype": torch_dtype},
+            model_kwargs={"torch_dtype": torch.bfloat16},
             device=device
         )
         self.tokenizer = self.pipeline.tokenizer
