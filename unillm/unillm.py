@@ -1,4 +1,5 @@
 import os
+import re
 import yaml
 from pathlib import Path
 from threading import Thread
@@ -53,7 +54,7 @@ class ChatGPT(UniLLMBase):
     """
     Class representing a ChatGPT model for generating text responses.
     """
-    def __init__(self, api_key = None, model_name="gpt-3.5-turbo"):
+    def __init__(self, api_key = None, model_id="gpt-3.5-turbo"):
         """
         Initializes the ChatGPT model with an API key and model name.
 
@@ -65,7 +66,7 @@ class ChatGPT(UniLLMBase):
         from openai import OpenAI
         api_key = get_api_key("chatgpt") if not api_key else api_key
         self.client = OpenAI(api_key=api_key)
-        self.model_name = model_name
+        self.model_name = model_id
     
     def generate_response(self, message):
         """
@@ -86,7 +87,7 @@ class ChatGPT(UniLLMBase):
         )
         return response.choices[0].message.content
 
-class Llama(UniLLMBase):
+class Llama2(UniLLMBase):
     """
     Class representing a Llama model for generating text responses.
     """
@@ -331,21 +332,21 @@ class MistralAI(UniLLMBase):
     """
     Class representing a MistralAI model for generating text responses via API.
     """
-    def __init__(self, api_key=None, model="mistral-large-latest"):
+    def __init__(self, api_key=None, model_id="mistral-large-latest"):
         """
         Initializes the MistralAI model with an API key and model identifier.
 
         Args:
             api_key (str, optional): The API key for MistralAI's services. If not provided, it's fetched using get_api_key.
 
-            model (str): The model identifier for MistralAI. Default is `mistral-large-latest`.
+            model_id (str): The model identifier for MistralAI. Default is `mistral-large-latest`.
         """
         from mistralai.client import MistralClient
         from mistralai.models.chat_completion import ChatMessage
         self.ChatMessage = ChatMessage
         api_key = get_api_key("mistralai") if not api_key else api_key
         self.client = MistralClient(api_key=api_key)
-        self.model = model
+        self.model = model_id
     
     def generate_response(self, message):
         """
@@ -541,7 +542,7 @@ class CommandRPlus(UniLLMBase):
 
         gen_text = self.tokenizer.decode(gen_tokens[0])
         # Remove everything before the last <BOS_TOKEN> to clean up the response
-        clean_text = gen_text.split('<BOS_TOKEN>')[-1].strip()
+        clean_text = re.split(r"<[^>]*>", gen_text)[-2]
         return clean_text
 
 class UniLLM:
@@ -573,16 +574,8 @@ class UniLLM:
         Raises:
             ValueError: If the specified model type is unsupported.
         """
-        model_mapping = {
-            'chatgpt': ChatGPT,
-            'llama': Llama,
-            'mistral': Mistral,
-            'claude': Claude,
-            'mistralai': MistralAI,
-            'rag': RAG,
-            'llama3': Llama3,
-            'commandrplus': CommandRPlus,
-        }
+        clss = get_all_subclasses(UniLLMBase)
+        model_mapping = {c.__name__.split(".")[-1] : c for c in clss}
         if model_type in model_mapping:
             return model_mapping[model_type](**kwargs)
         else:
@@ -599,6 +592,13 @@ class UniLLM:
             str: The generated response.
         """
         return self.model.generate_response(message)
+    
+def get_all_subclasses(cls):
+    all_subclasses = []
+    for subclass in cls.__subclasses__():
+        all_subclasses.append(subclass)
+        all_subclasses.extend(get_all_subclasses(subclass))
+    return all_subclasses
 
 def cmd(model_type=None, **kwargs):
     """
@@ -609,23 +609,16 @@ def cmd(model_type=None, **kwargs):
         
         **kwargs: Additional keyword arguments to pass to the model's constructor.
     """
-    model_options = {
-        '1': 'chatgpt',
-        '2': 'llama',
-        '3': 'mistral',
-        '4': 'claude',
-        '5': 'mistralai',
-        '6': 'rag',
-        '7': 'llama3',
-        '8': 'commandrplus',
-    }
+
+    clss = get_all_subclasses(UniLLMBase)
+    model_options = {str(i + 1) : c.__name__.split(".")[-1] for i, c in enumerate(clss)}
 
     if not model_type or model_type not in model_options.values():
         print("Available models:")
         for num, name in model_options.items():
             print(f"{num}: {name}")
         model_choice = input("Please choose a model by number (default is 1): ")
-        model_type = model_options.get(model_choice, 'chatgpt')
+        model_type = model_options.get(model_choice, 'ChatGPT')
 
 
     bot = UniLLM(model_type=model_type, **kwargs)

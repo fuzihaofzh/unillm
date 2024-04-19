@@ -1,33 +1,27 @@
+要更新你的 `README` 文件以反映你提供的代码的最新更改，我们将包括所有主要特性、安装指导、配置方法、如何使用、支持的模型，以及如何贡献。以下是根据你的代码更新的 `README` 文件：
+
+---
+
 # UniLLM: Unified Large Language Model Interface
 
-<p>
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
-</a>
-<a href="https://pypi.org/project/unillm/">
-  <img src="https://img.shields.io/pypi/v/unillm.svg" alt="PyPI">
-</a>
-<a href="https://github.com/fuzihaofzh/unillm">
-  <img src="https://img.shields.io/github/stars/fuzihaofzh/unillm?style=social" alt="GitHub stars">
-</a>
-<a href="https://unillm.readthedocs.io/en/latest/?badge=latest">
-  <img src="https://readthedocs.org/projects/unillm/badge/?version=latest" alt="Documentation Status">
-</a>
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/unillm.svg)](https://pypi.org/project/unillm/)
+[![GitHub stars](https://img.shields.io/github/stars/fuzihaofzh/unillm?style=social)](https://github.com/fuzihaofzh/unillm)
+[![Documentation Status](https://readthedocs.org/projects/unillm/badge/?version=latest)](https://unillm.readthedocs.io/en/latest/?badge=latest)
 
-</p>
-
-UniLLM is a versatile Python library and command-line tool designed to provide unified access to various large language models, including [ChatGPT](https://openai.com/chatgpt), [Llama](https://llama.meta.com/), [Mistral (local)](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2), [Claude](https://www.anthropic.com/), [MistralAI (API)](https://mistral.ai/), and [RAG (llamaindex)](https://www.llamaindex.ai/). It is a wrapper that unifies the process of interacting with these models, whether you're integrating them into your Python projects or using them directly via the command line.
+UniLLM is a versatile Python library and command-line tool designed to provide unified access to various large language models such as [ChatGPT](https://openai.com/chatgpt), [Llama2](https://llama.meta.com/), [Mistral](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2), [Claude](https://www.anthropic.com/), [MistralAI](https://mistral.ai/), [RAG](https://www.llamaindex.ai/), [Llama3](https://llama.meta.com/), and [CommandRPlus](https://cohere.ai/). This library simplifies the integration of these models into your projects or allows for direct interaction via the command line.
 
 ## Features
 
 - Unified API for interacting with multiple language models.
-- Supports models like ChatGPT, LLaMA, Mistral, Claude, MistralAI, and RAG.
-- Easy-to-use command-line interface for quick interactions.
+- Support for both API and local models.
 - Extensible framework allowing the addition of more models in the future.
+- Command-line tool for easy interaction with models.
+- Configuration via YAML file for API keys.
 
 ## Installation
 
-To install UniLLM, you can use pip directly:
+Install UniLLM using pip:
 
 ```bash
 pip install unillm
@@ -35,80 +29,70 @@ pip install unillm
 
 ## Configuration
 
-Before using UniLLM, you need to configure your API keys for the models you intend to use. Create a `.unillm.yaml` file in your home directory with the following structure:
+Configure your API keys for the models by creating a `.unillm.yaml` file in your home directory:
 
 ```yaml
 chatgpt: YOUR_CHATGPT_API_KEY
 claude: YOUR_CLAUDE_API_KEY
 mistralai: YOUR_MISTRALAI_API_KEY
+# Add other model API keys as needed
 ```
-
-Replace `YOUR_MODEL_API_KEY` with the actual API keys for the models you plan to use.
 
 ## Supported Models
 
-| Model       | Support API| Support Local |
-|-------------|:----------:|:-------------:|
-| ChatGPT     | ✅         |               |
-| Llama       |            | ✅            |
-| Mistral     | ✅         | ✅            |
-| Claude      | ✅         |               | 
-| RAG         | ✅         | ✅            |
-| Gemini       | Soon       |               |
+| Model         | Support API | Support Local |
+|---------------|:-----------:|:-------------:|
+| ChatGPT       | ✅          |               |
+| Llama2        |             | ✅            |
+| Mistral       | ✅          | ✅            |
+| Claude        | ✅          |               |
+| MistralAI     | ✅          |               |
+| RAG           | ✅          | ✅            |
+| Llama3        |             | ✅            |
+| CommandRPlus  |             | ✅            |
 
 ## Usage
 
 ### As a Python Library
 
-You can use UniLLM in your Python projects to interact with various language models seamlessly.
-
-Example:
+Interact with language models seamlessly in your Python projects:
 
 ```python
 from unillm import UniLLM
 
-# Initialize the model (e.g., Llama with PEFT)
-model = UniLLM('llama', peft_path="output/my_lora", max_new_tokens=1024)
+# Initialize Llama with specific settings
+model = UniLLM('Llama2', peft_path="path_to_peft_model", max_new_tokens=1024)
 
 # Generate a response
-response = model.generate_response("Hello!")
+response = model.generate_response("How can AI help humans?")
 print(response)
 ```
 
 ### As a Command-Line Tool
 
-UniLLM also provides a command-line interface to interact with the supported language models.
-
-To start the CLI, simply run:
+Start the CLI by running:
 
 ```bash
 unillm
 ```
 
-
-Follow the prompts to choose a model and enter your queries. For example:
+Follow the prompts to select a model and enter your queries. For example:
 
 ```bash
 Please choose a model by number (default is 1):
-1: chatgpt
-2: llama
+1: ChatGPT
+2: Llama2
 ...
 
-👨Please Ask a Question: How are you?
-🤖 (chatgpt): I'm just a virtual assistant, but I'm here to help you!
-```
-
-For using Llama with a PEFT model:
-
-```bash
-unillm --model_type llama --peft_path "output/my_lora" --max_new_tokens 1024
+👨Please Ask a Question: What are the latest AI trends?
+🤖 (ChatGPT): AI trends include...
 ```
 
 To exit, type `exit`.
 
 ## Contributing
 
-Contributions are welcome! If you have suggestions for improvements or new features, please feel free to fork the repository, create a feature branch, and submit a pull request.
+We welcome contributions! If you have suggestions or enhancements, fork the repository, create a feature branch, and submit a pull request.
 
 ## License
 
